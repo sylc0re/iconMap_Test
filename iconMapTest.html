@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        ul.icon-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+            padding: 100px 0 0;
+            margin: 50px 0 100px;
+            position: relative;
+            align-items: center;
+        }
+    
+        ul.icon-grid:before {
+            content: 'IconMap – Test';
+            position: absolute;
+            font-size: 3rem;
+            font-weight: bold;
+            left: 50%;
+            top: 0;
+            line-height: 1;
+            transform: translateX(-50%);
+        }
+    
+        .icon-card {
+            text-align: center;
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            width: 150px;
+            background-color: var(--light); 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .icon-card::before{
+            content: none!important;
+        }
+    
+        .icon-card i {
+            font-size: 30px;
+            color: var(--medium);
+        }
+    
+        .icon-card p {
+            margin: 10px 0 0;
+            font-size: 14px;
+            color: var(--primary);
+            font-weight: bold;
+        }
+    
+        .icon-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+    
+    </style>
+    
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const iconMap = Object.keys(cssData['icon-map']);
+            const triggerUl = document.createElement('ul');
+            triggerUl.classList.add('icon-grid');
+            triggerUl.innerHTML = iconMap.map(icon => `
+                <li class="icon-card">
+                    <i class="icon icon-${icon}"></i>
+                    <p>${icon}</p>
+                </li>
+            `).join('');
+            const lastRow = document.querySelector('.row:last-child');
+            lastRow.appendChild(triggerUl);
+        })
+    </script>
+</body>
+</html>

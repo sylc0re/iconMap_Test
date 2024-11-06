@@ -56,19 +56,21 @@
 </style>
 
 <script>
-    let iconMap = Object.keys(cssData['icon-map']);
+    window.addEventListener('DOMContentLoaded', () => {
+        let iconMap = Object.keys(cssData['icon-map']);
 
-    let triggerUl = document.createElement('ul');
-    triggerUl.classList.add('icon-grid');
+        let triggerUl = document.createElement('ul');
+        triggerUl.classList.add('icon-grid');
 
-    iconMap.forEach(icon => {
-        let innerLi = document.createElement('li');
-        innerLi.classList.add('icon-card');
-        innerLi.innerHTML = `<i class="icon icon-${icon}"></i><p>${icon}</p>`;
-        triggerUl.appendChild(innerLi);
-    });
+        iconMap.forEach(icon => {
+            let innerLi = document.createElement('li');
+            innerLi.classList.add('icon-card');
+            innerLi.innerHTML = `<i class="icon icon-${icon}"></i><p>${icon}</p>`;
+            triggerUl.appendChild(innerLi);
+        });
 
-    let lastRow = [...document.querySelectorAll('.row')].at(-1);
+        let lastRow = [...document.querySelectorAll('.row')].at(-1);
 
-    lastRow.appendChild(triggerUl);
+        lastRow.appendChild(triggerUl);
+    })
 </script>

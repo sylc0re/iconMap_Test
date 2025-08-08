@@ -64,10 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
       padding: 1rem!important;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
     }
     .icon-card:hover{ transform:translateY(-2px); box-shadow:0 8px 15px rgba(0,0,0,.15); }
     .icon-card i{ font-size:30px; color:var(--dark, var(--color-surface-elevated, #222)); display:block; }
-    .icon-card p{ margin:10px 0 0; font-size:14px; color:var(--dark, var(--color-surface-elevated, #f00)); font-weight:700; word-break:break-word; }
+    .icon-card p{ margin:5px 0 0; font-size:14px; color:var(--dark, var(--color-surface-elevated, #f00)); font-weight:700; word-break:break-word; }
     .icon-card::before{ content:none!important; }
     @media (prefers-reduced-motion: reduce){
       .icon-card{ transition:none; }
